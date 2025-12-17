@@ -1,0 +1,32 @@
+{
+  "id": "default_pack",
+  "version": "0.1.0",
+  "render": {
+    "canvas": { "width": 144, "height": 96 },
+    "sprite": { "frameWidth": 24, "frameHeight": 36 },
+    "scale": 4,
+    "smoothing": false,
+    "anchor": { "x": 0.5, "y": 1.0 }
+  },
+  "progression": {
+    "stages": [
+      { "id": 0, "variants": [ { "when": {}, "sprite": "test/sprites/stage0/SoulSheet.png" } ] },
+      { "id": 1, "variants": [
+        { "when": { "alignment": "light" }, "sprite": "test/sprites/stage1/1LightSheet.png" },
+        { "when": { "alignment": "dark" }, "sprite": "test/sprites/stage1/1DarkSheet.png" }
+      ] }
+    ]
+  },
+  "animations": {
+    "format": { "type": "grid", "columns": 4, "rows": 4 },
+    "clips": {
+      "idle": { "row": 0, "frames": [0,1,2,3], "fps": 6, "loop": true },
+      "idle_alt": { "row": 1, "frames": [0,1,2,3], "fps": 4, "loop": true },
+      "sleep": { "row": 2, "frames": [0,1,2,3], "fps": 3, "loop": true }
+    },
+    "behavior": {
+      "idleMix": [ { "clip": "idle", "weight": 0.7 }, { "clip": "idle_alt", "weight": 0.3 } ],
+      "sleepAfterSeconds": 180
+    }
+  }
+}
